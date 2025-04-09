@@ -11,6 +11,10 @@ export default function HomeScreen() {
       setTask('');
     }
   };
+  const deleteTask = (indexToDelete: number) => {
+    setTasks(tasks.filter((_, index) => index !== indexToDelete));
+  };
+  
 
   return (
     <View style={styles.container}>
@@ -27,7 +31,12 @@ export default function HomeScreen() {
       <FlatList
         data={tasks}
         renderItem={({ item, index }) => (
-          <Text style={styles.task}>{index + 1}. {item}</Text>
+          <View style= {styles.taskItem}>
+            <Text style={styles.task}>{index + 1}. {item}</Text>
+            <Pressable style={styles.deleteButton} onPress={() => deleteTask(index)}>
+              <Text style={styles.deleteButtonText}>Delete</Text>
+            </Pressable>
+          </View>
         )}
         keyExtractor={(item, index) => index.toString()}
       />
@@ -41,5 +50,26 @@ const styles = StyleSheet.create({
   input: { borderColor: '#ccc', borderWidth: 1, padding: 10, marginBottom: 10, borderRadius: 5 },
   button: { backgroundColor: '#007bff', padding: 10, borderRadius: 5, alignItems: 'center' },
   buttonText: { color: '#fff', fontWeight: 'bold' },
-  task: { fontSize: 16, marginTop: 10 }
+  task: { fontSize: 16, marginTop: 10 },
+
+  taskItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10,
+    marginVertical: 5,
+    backgroundColor: '#f0f0f0',
+    borderRadius: 5,
+  },
+  deleteButton: {
+    backgroundColor: 'red',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 5,
+  },
+  deleteButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
+  },
+  
 });
