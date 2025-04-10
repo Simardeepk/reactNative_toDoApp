@@ -22,3 +22,9 @@ Working in Progress
 1. Clone this repo
 2. Run npm install
 3. Start the app with- npm expo start
+
+## Working On:
+1. Mark as Complete Feature
+2. Light/ Dark mode toggle
+3. Save tasks
+
