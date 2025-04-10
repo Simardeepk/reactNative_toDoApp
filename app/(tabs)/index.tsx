@@ -18,10 +18,11 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>📝 ToDo App</Text>
+      <Text style={styles.heading}>📝 To-Do List</Text>
       <TextInput
         style={styles.input}
         placeholder="Enter a task"
+        placeholderTextColor="#6B9080"
         value={task}
         onChangeText={setTask}
       />
@@ -45,12 +46,14 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, backgroundColor: '#fff' },
-  heading: { fontSize: 24, fontWeight: 'bold', marginBottom: 20 },
-  input: { borderColor: '#ccc', borderWidth: 1, padding: 10, marginBottom: 10, borderRadius: 5 },
-  button: { backgroundColor: '#007bff', padding: 10, borderRadius: 5, alignItems: 'center' },
-  buttonText: { color: '#fff', fontWeight: 'bold' },
+  container: { flex: 1, padding: 20, backgroundColor: '#fff1e6', justifyContent: 'center', alignItems: 'center' },
+  heading: { fontSize: 28, fontWeight: 'bold', marginBottom: 25, color: '#333', marginTop: 20},
+  input: { borderColor: '#a4c3b2', backgroundColor: '#f0f5f2' ,borderWidth: 1, padding: 12, marginBottom: 15, borderRadius: 10, width:'100%', fontSize:16 },
+  button: { backgroundColor: '#6B9080', padding: 12, borderRadius: 10, alignItems: 'center', width: '100%' },
+  buttonText: { color: '#fff', fontWeight: '600' },
   task: { fontSize: 16, marginTop: 10 },
+
+
 
   taskItem: {
     flexDirection: 'row',
@@ -58,8 +61,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     marginVertical: 5,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#ffe6f9',
     borderRadius: 5,
+    width: '100%',
+    
   },
   deleteButton: {
     backgroundColor: 'red',
